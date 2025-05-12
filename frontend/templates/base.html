@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QronoSound - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <nav>
+        <a href="/" class="logo">QronoSound</a>
+        <ul>
+            <li><a href="/home" {% if request.path=='/home' %}class="active"{% endif %}>Home</a></li>
+            <li><a href="/library" {% if request.path=='/library' %}class="active"{% endif %}>Library</a></li>
+            <li><a href="/split" {% if request.path=='/split' %}class="active"{% endif %}>Split</a></li>
+            <li><a href="/help" {% if request.path=='/help' %}class="active"{% endif %}>Help</a></li>
+            <li><a href="/about" {% if request.path=='/about' %}class="active"{% endif %}>About</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>This tool is for personal use only. Please respect the rights of content creators.</p>
+        <p><a href="https://qronosound.com">qronosound.com</a> | Last updated: May 2025</p>
+    </footer>
+    <script src="/static/js/main.js"></script>
+    {% block js %}{% endblock %}
+</body>
+</html>

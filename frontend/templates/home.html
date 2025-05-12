@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/home.css">
+{% endblock %}
+
+{% block content %}
+    <section class="download-section text-center">
+        <h1>Effortlessly Split and Tag Long Audio Tracks</h1>
+        <p class="lead">Enter a SoundCloud or YouTube URL to download, split, and tag MP3 or WAV files.</p>
+        <form id="download-form" class="download-form">
+            <div class="url-input-container">
+                <img src="/static/images/youtube-icon.png" alt="YouTube Icon" class="platform-icon">
+                <img src="/static/images/soundcloud-icon.png" alt="SoundCloud Icon" class="platform-icon">
+                <input type="url" id="url-input" placeholder="Paste SoundCloud or YouTube URL" required>
+            </div>
+            <div class="form-controls">
+                <select id="format-select">
+                    <option value="mp3">MP3</option>
+                    <option value="wav">WAV</option>
+                </select>
+                <button type="submit" id="fetch-button">Fetch Audio</button>
+            </div>
+        </form>
+        <div id="error-message" class="error hidden"></div>
+    </section>
+
+    <section class="waveform-section text-center hidden" id="waveform-container">
+        <h2>Preview Your Audio</h2>
+        <div id="waveform"></div>
+        <div class="controls">
+            <button id="play-pause-button">Play</button>
+            <button id="save-button">Save to Library</button>
+        </div>
+    </section>
+
+    <section class="how-it-works text-center">
+        <h2>How It Works</h2>
+        <p class="lead">QronoSound makes it easy to download, split, and manage audio tracks.</p>
+        <div class="steps">
+            <div class="step">
+                <h3>Step 1</h3>
+                <p>Paste a SoundCloud or YouTube URL and choose MP3 or WAV.</p>
+            </div>
+            <div class="step">
+                <h3>Step 2</h3>
+                <p>Fetch and preview the audio with our waveform player.</p>
+            </div>
+            <div class="step">
+                <h3>Step 3</h3>
+                <p>Save the track to your Library for later access.</p>
+            </div>
+            <div class="step">
+                <h3>Step 4</h3>
+                <p>Split long tracks manually and add metadata (name, artist).</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="https://unpkg.com/wavesurfer.js@6"></script>
+    <script src="/static/js/home.js"></script>
+{% endblock %}
